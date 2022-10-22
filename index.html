@@ -10,16 +10,36 @@
 
 <body>
     <header>
-        <h1>Coding Quiz Game</h1>
+        <div class="viewHighScore">View High Scores</div>
+        <div>Time Remaining:
+            <span id="timer">180</span>
+        </div>
     </header>
 
     <main>
-        <section class="timesUp"></section>
+        <section class="startPage">
+            <h1>Coding Quiz Game</h1>
+            <p>This quiz tests the user's basic coding knolwedge. You have 60 seconds to answer questions related to
+                basic html, css, and javascript. This is a multiple choice quiz and each question will have 4 differen
+                choices. Click "Start Game" to start the game.</p>
+        </section>
         <section class="quizQuestions"></section>
         <section class="answersChoices"></section>
+        <section class="timesUp"></section>
+
+
         <section class="submitBtn"></section>
+        <button class="submitBtn__startgame">Start Game</button>
+        <section class="results"></section>
+            <h2>Times Up!</h2>
+            <p>Your score is  
+                <span class="final-score">0</span>
+            </p>
+            <label>Please enter your initial: </label>
+            <button class="submitBtn__submitScore">Submit your Score</button>
+        </section>
     </main>
-   
+
     <script src="./assets/js/script.js"></script>
 </body>
 
