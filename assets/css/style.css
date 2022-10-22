@@ -12,8 +12,7 @@ body {
 }
 
 header {
-    display: inline-block;
-    text-align: left;
+    display: inline-flex;
     font-weight: bold;
     font-size: 15px;
     padding: 20px;
@@ -25,10 +24,10 @@ main {
     text-align: center;
     background-color: aquamarine;
     border-radius: 12px;
-}
-
-.viewHighScore {
-   padding-bottom: 10px;
+    margin:auto;
+    width: 50%;
+    border: 3px;
+    padding: 10px;
 }
 
 .startPage h1 {
@@ -37,7 +36,5 @@ main {
     font-weight: bold;
 }
 
-.startPage p {
-    display: block;
-    font-size: 20px;
-}
+
+
