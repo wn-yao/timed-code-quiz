@@ -78,9 +78,9 @@ function startTimerTick() {
 var currentQuestionIndex = 0
 var correct = 0;
 
-var answerOptions = document.createElement("button");
-answerOptions.classList.add("btn");
-answersEl.appendChild(answerOptions);
+//var answerOptions = document.createElement("button");
+//answerOptions.classList.add("btn");
+//answersEl.appendChild(answerOptions);
 
 
 function displayQuestions () {
@@ -88,10 +88,11 @@ function displayQuestions () {
     currentQ = questionsAndAnswers[currentQuestionIndex];
     console.log(currentQ);
     questionsEl.textContent = currentQ.question;
-    answersEl.textContent = currentQ.answersEl;
-    console.log(answersEl);
+    
+    }
+
     //answersEl.addEventListener("click", selectAnswer);
-    };
+    //};
 
     //currentQuestion = questionsAndAnswers[currentIndex];
     //quizboardEl.textContemt = questionsAndAnswers.question;
