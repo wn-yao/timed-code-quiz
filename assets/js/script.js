@@ -22,7 +22,7 @@ var questionsAndAnswers = [
     CorrectAnswer: "alerts",
   },
   {
-    quesion: "The condition in and if/else statement is enclosed within _____.",
+    question: "The condition in and if/else statement is enclosed within _____.",
     options: ["quotes", "curly brackets", "parentheses", "square brackets"],
     CorrectAnswer: "gparentheses",
   },
@@ -80,19 +80,22 @@ function startTimerTick() {
 }
 
 //after game start to display the questions ans choices for users
-var currentQuestionIndex = 0
+var currentQuestionIndex = 0;
 var correct = 0;
 
 function displayQuestions() {
   quizboardEl.classList.remove("hideQuizBoard");
+  for (i=0; i < questionsAndAnswers.length; i++) {
   currentQ = questionsAndAnswers[currentQuestionIndex];
-  console.log(currentQ);
+  //console.log(currentQ);
   questionsEl.textContent = currentQ.question;
+  }
   displayOptions();
 }
 //show second question when go to answer is selected 
 
 function displayOptions() {
+  answersEl.innerHTML = "";
   for (i = 0; i < currentQ.options.length; i++) {
     //optionsChoice = questionsAndAnswers[0];
     var answerOptions = document.createElement("button");
@@ -105,12 +108,18 @@ function displayOptions() {
 //need to remove the first set of answer sets after making selection
 function selectAnswer() {
   console.log(event.target.textContent );
+  var clickedAnswer = event.target.textContent;
   //changing the currentQuestionIndex 
   currentQuestionIndex++;
   displayQuestions();
 }
 
+
+
 answersEl.addEventListener("click", selectAnswer);
+
+
+
 //};
 
 //currentQuestion = questionsAndAnswers[currentIndex];
