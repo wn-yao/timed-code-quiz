@@ -3,7 +3,7 @@ var highScoreEl = document.querySelector(".viewHighScore");
 var timerDisplayEl = document.querySelector("#timer");
 var startPageEl = document.querySelector("#start");
 var startQuizBtn = document.querySelector("#startquiz");
-var quizboardEl = document.querySelectorAll(".quizboard");
+var quizboardEl = document.querySelector("#quizboard");
 var questionsEl = document.querySelector("#questions");
 var answersEl = document.querySelector("#answers");
 var resultBoardEl = document.querySelector("#results");
@@ -17,34 +17,24 @@ var showResult = document.querySelector(".hideResult");
 
 var questionsAndAnswers = [
     {question: "Commonly used data types DO NOT include:",
-     a: "strings",
-     b: "booleans",
-     c: "alerts",
-     d: "numbers",
+     options: ["strings", "booleans", "alerts", "numbers"],
+     CorrectAnswer: "alerts",
   },
     {quesion: "The condition in and if/else statement is enclosed within _____.",
-     q: "quotes",
-     b: "curly brackets",
-     c: "parentheses",
-     d: "square brackets",
+     options: ["quotes", "curly brackets", "parentheses", "square brackets"],
+     CorrectAnswer: "gparentheses",
   },
     {question: "Array in JavaScript can be used to store ______.",
-     a: "numbers and strings",
-     b: "other arrays",
-     c: "booleans",
-     d: "all of the above",
+     options: ["numbers and strings", "other arrays", "booleans", "all of the above"],
+     CorrectAnswer: "all of the above",
   },
     {question: "String values must be enclosed within ____ when being assigned to variables.",
-     a: "commas",
-     b: "cruly brackets",
-     c: "quotes",
-     d: "paraentheses",
+     options: ["commas", "curly brackets", "quotes", "paratheses"],
+     CorrectAnswer: "quotes",
   }, 
     {question: "A very useful tool used during development and debugging for printint content to the debugger is:",
-     a: "JavaScript",
-     b: "terminal/bash",
-     c: "for loops",
-     d: "console.log",
+     options: ["JavaScript", "terminal/bash", "for loops", "console.log"],
+     CorrectAnswer: "console.log",
   },
   ];
 
@@ -63,9 +53,10 @@ startQuizBtn.addEventListener("click", startQuiz);
 //submitScoreEl.addEventListener("click", storeScore);
 
 function startQuiz() {
-    showQuizBoard.style.visibility = "visible";
+    showQuizBoard.remove();
+    startPageEl.remove();
     startTimerTick();
-    //displayQuestions();
+    displayQuestions();
 }
 
 
@@ -84,8 +75,24 @@ function startTimerTick() {
   }, 1000);
 }
 
+//after game start to display the questions ans choices for users
+var currentQuestionIndex = 0
+var correct = 0;
 
-//function displayQuestions () {
+var answerOptions = document.createElement("button");
+answerOptions.classList.add("btn");
+answersEl.appendChild(answerOptions);
+
+
+function displayQuestions () {
+    quizboardEl.classList.remove("hideQuizBoard");
+    currentQ = questionsAndAnswers[currentQuestionIndex];
+    console.log(currentQ);
+    questionsEl.textContent = currentQ.question;
+    answersEl.textContent = currentQ.answersEl;
+    answersEl.addEventListener("click", selectAnswer);
+    };
+
     //currentQuestion = questionsAndAnswers[currentIndex];
     //quizboardEl.textContemt = questionsAndAnswers.question;
     //answerOptions.classList.remove("visibility");
