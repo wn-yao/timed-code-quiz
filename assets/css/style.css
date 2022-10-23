@@ -36,5 +36,10 @@ main {
     font-weight: bold;
 }
 
+.hideQuizeBoard {
+    display: none;
+}
 
-
+.hideResult {
+    display: none;
+}

@@ -11,25 +11,23 @@
 <body>
     <header>
         <div class="viewHighScore"><a href="#">View High Scores</a></div>
-        <div class ="timeLeft">Time Remaining:
-            <span id="timer">180</span>
-        </div>
+        <p>Time Remaining: </p><div id="timer"></div>
     </header>
 
     <main>
-        <section class="quizestartpage">
+        <section id="start" class="quizestartpage">
             <h1>Coding Quiz Game</h1>
-            <p>This quiz tests the user's basic coding knolwedge. You have 60 seconds to answer questions related to
+            <p>This quiz tests the user's basic coding knolwedge. You have 90 seconds to answer questions related to
                 basic html, css, and javascript. This is a multiple choice quiz and each question will have 4 differen
                 choices. Click "Start Game" to start the game.</p>
             <button id="startquiz">Start Quiz</button>
         </section>
-        <section class="quizboard">
+        <section id="quizboard" class="hideQuizBoard">
         <div id="questions"></div>
-        <div id="answers" class="btnChoices"></div>
+        <ul id="answers" class="btnChoices"></ul>
         </section>
 
-        <section id="results">
+        <section id="results" class="hideResult">
             <h2>Times Up!</h2>
             <p>Your score is  
                 <span class="final-score">0</span>
