@@ -53,7 +53,6 @@ startQuizBtn.addEventListener("click", startQuiz);
 //submitScoreEl.addEventListener("click", storeScore);
 
 function startQuiz() {
-    showQuizBoard.remove();
     startPageEl.remove();
     startTimerTick();
     displayQuestions();
@@ -90,7 +89,8 @@ function displayQuestions () {
     console.log(currentQ);
     questionsEl.textContent = currentQ.question;
     answersEl.textContent = currentQ.answersEl;
-    answersEl.addEventListener("click", selectAnswer);
+    console.log(answersEl);
+    //answersEl.addEventListener("click", selectAnswer);
     };
 
     //currentQuestion = questionsAndAnswers[currentIndex];
