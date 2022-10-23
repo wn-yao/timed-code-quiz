@@ -88,8 +88,15 @@ function displayQuestions () {
     currentQ = questionsAndAnswers[currentQuestionIndex];
     console.log(currentQ);
     questionsEl.textContent = currentQ.question;
-    
+    displayOptions();
     }
+
+function displayOptions () {
+  for (i = 0; i < questionsAndAnswers.length; i++) {
+  var optionsChoice = questionsAndAnswers[0]
+  console.log(optionsChoice);
+  answersEl.textContent = optionsChoice.options;
+}}
 
     //answersEl.addEventListener("click", selectAnswer);
     //};
