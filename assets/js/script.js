@@ -10,7 +10,7 @@ var resultBoardEl = document.querySelector("#results");
 var finalScoreEl = document.querySelector(".final-score");
 var submitScoreEl = document.querySelector("#submitScore");
 var showQuizBoard = document.querySelector(".hideQuizBoard");
-var showResult = document.querySelector(".hideResult");
+var showResultEl = document.querySelector(".hideResult");
 
 
 //Questions and it's answers 
@@ -69,9 +69,12 @@ function startQuiz() {
 function startTimerTick() {
   //set timer
   timerInterval = setInterval(function () {
+    if (totalTime < 0) {
+      quizGameOver();
+    } else
     if (totalTime === 0) {
       clearInterval(timerInterval);
-      showResult.style.visibility = "visible";
+      showResultEl.style.visibility = "visible";
     } else {
       totalTime--;
       timerDisplayEl.textContent = totalTime;
@@ -102,10 +105,11 @@ function displayOptions() {
     answerOptions.classList.add("btn");
     answerOptions.textContent = currentQ.options[i];
     answersEl.appendChild(answerOptions);
-    //console.log(currentQ.options[i]);
+    console.log(currentQ.options[i]);
   }
 }
 //need to remove the first set of answer sets after making selection
+ //answer correct?
 function selectAnswer() {
   console.log(event.target.textContent);
   var clickedAnswer = event.target.textContent;
@@ -120,24 +124,36 @@ function selectAnswer() {
     displayQuestions();
     totalTime = totalTime - 10;
     console.log (totalTime);
+  } 
+  
   }
-}
+
 
   answersEl.addEventListener("click", selectAnswer);
 
 
+function quizGameOver() { 
+  if (clickedAnswer == currentQ.options[4]) {
+    quizGameOver();
+  } else {
+    if (timerDisplayEl = 0) {
+       } else {s
+    timerDisplayEl = "";
+  quizboardEl.classList.add("hideQuizBoard");
+  resultBoardEl.classList.remove("hideResult");
+}}}
+ // function clearQuestion () {
+    //if 
+  
+  //function quizOver () {
 
-  //};
 
-  //currentQuestion = questionsAndAnswers[currentIndex];
-  //quizboardEl.textContemt = questionsAndAnswers.question;
-  //answerOptions.classList.remove("visibility");
-  //console.log(displayQuestions)
-  //}
+  
 
 
   //answer correct?
 
   //resulst show after quize is done
- // function quizGameOver() { }
 
+ 
+  //save score to loca sotrage 
