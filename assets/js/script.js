@@ -39,7 +39,7 @@ var questionsAndAnswers = [
   {
     question: "A very useful tool used during development and debugging for printint content to the debugger is:",
     options: ["JavaScript", "terminal/bash", "for loops", "console.log"],
-    CorrectAnswer: "console.log",
+    CorrectAnswer: "quotes",
   },
 ];
 
@@ -69,12 +69,9 @@ function startQuiz() {
 function startTimerTick() {
   //set timer
   timerInterval = setInterval(function () {
-    if (totalTime < 0) {
-      quizGameOver();
-    } else
     if (totalTime === 0) {
       clearInterval(timerInterval);
-      showResultEl.style.visibility = "visible";
+      quizGameOver();
     } else {
       totalTime--;
       timerDisplayEl.textContent = totalTime;
@@ -115,32 +112,36 @@ function selectAnswer() {
   var clickedAnswer = event.target.textContent;
   //changing the currentQuestionIndex \
  // for (i=0, i , current)
-  if (clickedAnswer === currentQ.CorrectAnswer) {
-    currentQuestionIndex++;
+  if (clickedAnswer === currentQ.CorrectAnswer.innterText) {
+    //currentQuestionIndex++;
     displayQuestions();
-    console.log(clickedAnswer);
-  } else {
-    currentQuestionIndex++;
-    displayQuestions();
+    //console.log(clickedAnswer);
+  } if (clickedAnswer !== currentQ.CorrectAnswer.innterText) {
     totalTime = totalTime - 10;
     console.log (totalTime);
-  } 
-  }
+    //currentQuestionIndex++;
+    //displayQuestions();
+  }; 
+  if (questionsAndAnswers.length < currentQuestionIndex+1
+    )
+  {quizGameOver();} else {;
+    currentQuestionIndex++;
+    displayQuestions();}
 
-
+}
   answersEl.addEventListener("click", selectAnswer);
 
 
 function quizGameOver() { 
-  if (clickedAnswer == currentQ.options[4]) {
-    quizGameOver();
-  } else {
-    if (timerDisplayEl = 0) {
-       } else {s
+ // if (clickedAnswer == currentQ.options[4]) {
+   // quizGameOver();
+ // } else {
+   // if (timerDisplayEl = 0) {
+   //    } else {
     timerDisplayEl = "";
   quizboardEl.classList.add("hideQuizBoard");
   resultBoardEl.classList.remove("hideResult");
-}}}
+}//}}
  // function clearQuestion () {
     //if 
   
@@ -155,4 +156,5 @@ function quizGameOver() {
   //resulst show after quize is done
 
  
+  //save score to loca sotrage 
 
