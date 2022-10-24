@@ -24,7 +24,7 @@ var questionsAndAnswers = [
   {
     question: "The condition in and if/else statement is enclosed within _____.",
     options: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    CorrectAnswer: "gparentheses",
+    CorrectAnswer: "parentheses",
   },
   {
     question: "Array in JavaScript can be used to store ______.",
@@ -39,7 +39,7 @@ var questionsAndAnswers = [
   {
     question: "A very useful tool used during development and debugging for printint content to the debugger is:",
     options: ["JavaScript", "terminal/bash", "for loops", "console.log"],
-    CorrectAnswer: "quotes",
+    CorrectAnswer: "console.log",
   },
 ];
 
@@ -112,20 +112,23 @@ function selectAnswer() {
   var clickedAnswer = event.target.textContent;
   //changing the currentQuestionIndex \
  // for (i=0, i , current)
-  if (clickedAnswer === currentQ.CorrectAnswer.innterText) {
+  if (clickedAnswer === currentQ.CorrectAnswer) {
     //currentQuestionIndex++;
-    displayQuestions();
+    //alert("Correct!");
+    //displayQuestions();
     //console.log(clickedAnswer);
-  } if (clickedAnswer !== currentQ.CorrectAnswer.innterText) {
+  } else {
+    //alert("Wrong!");
     totalTime = totalTime - 10;
     console.log (totalTime);
+    timerDisplayEl.textContent=totalTime;
     //currentQuestionIndex++;
     //displayQuestions();
-  }; 
+  }; currentQuestionIndex++;
   if (questionsAndAnswers.length < currentQuestionIndex+1
     )
   {quizGameOver();} else {;
-    currentQuestionIndex++;
+    //currentQuestionIndex++;
     displayQuestions();}
 
 }
@@ -141,7 +144,7 @@ function quizGameOver() {
     timerDisplayEl = "";
   quizboardEl.classList.add("hideQuizBoard");
   resultBoardEl.classList.remove("hideResult");
-}//}}
+}
  // function clearQuestion () {
     //if 
   
