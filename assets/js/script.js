@@ -125,7 +125,6 @@ function selectAnswer() {
     totalTime = totalTime - 10;
     console.log (totalTime);
   } 
-  
   }
 
 
@@ -156,4 +155,4 @@ function quizGameOver() {
   //resulst show after quize is done
 
  
-  //save score to loca sotrage 
+
