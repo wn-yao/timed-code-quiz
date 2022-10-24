@@ -14,6 +14,7 @@ var showResultEl = document.querySelector(".hideResult");
 var initialEl = document.querySelector("#initials");
 var scoreRecordEl = document.querySelector("#scoreRecord");
 var finalUserRecordEl = document.querySelector("#finalUserRecord");
+var returnToQuizEl = document.querySelector("#return-btn");
 var clearScoreEl = document.querySelector("#clearScore-btn");
 
 //Questions and it's answers 
@@ -169,9 +170,30 @@ function quizGameOver() {
   localStorage.setItem("recoredScore", JSON.stringify(scoreList));
   resultBoardEl.remove();
   scoreRecordEl.classList.remove("hideScoreRecord");
+  renderHighScore();
 })
 
+function renderHighScore() {
+  var scoreResult = localStorage.getItem("score");
+  var initialEntered = localStorage.getItem("initial");
+  var initial = document.createElement("p");
+  var score = document.createElement("p");
+  if (initialEntered) {
+    initial.textContent = "Initial: " + initialEntered;}
+    finalUserRecordEl.appendChild(initial);
+   if (scoreResult) {
+    score.textContent = "High Score: " + scoreResult;
+  }finalUserRecordEl.appendChild(score);}
 
+
+  returnToQuizEl.addEventListener("click",function(event) {
+    event.preventDefault();
+    window.location.href="index.html";})
+
+    clearScoreEl.addEventListener("click", function(event){
+      event.preventDefault();
+      localStorage.clear();
+    })
    // if(initialEl) {
       
   
