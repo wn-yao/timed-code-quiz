@@ -11,7 +11,7 @@ var finalScoreEl = document.querySelector(".final-score");
 var submitScoreEl = document.querySelector("#submitScore");
 var showQuizBoard = document.querySelector(".hideQuizBoard");
 var showResultEl = document.querySelector(".hideResult");
-
+var initialEl = document.querySelector("#initials");
 
 //Questions and it's answers 
 
@@ -107,6 +107,9 @@ function displayOptions() {
 }
 //need to remove the first set of answer sets after making selection
  //answer correct?
+
+  //resulst show after quize is done
+
 function selectAnswer() {
   console.log(event.target.textContent);
   var clickedAnswer = event.target.textContent;
@@ -142,9 +145,19 @@ function quizGameOver() {
    // if (timerDisplayEl = 0) {
    //    } else {
     timerDisplayEl = "";
+    finalScoreEl.textContent = totalTime;
   quizboardEl.classList.add("hideQuizBoard");
   resultBoardEl.classList.remove("hideResult");
 }
+//
+  //var score = localSt.getItem("score");
+  //totalTime.textContent = score;
+  
+ // submitScoreEl.addEventListener("click", function()) {
+   // if(initialEl) {
+      
+  
+
  // function clearQuestion () {
     //if 
   
@@ -152,12 +165,6 @@ function quizGameOver() {
 
 
   
-
-
-  //answer correct?
-
-  //resulst show after quize is done
-
  
   //save score to loca sotrage 
 
