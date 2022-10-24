@@ -149,11 +149,23 @@ function quizGameOver() {
   quizboardEl.classList.add("hideQuizBoard");
   resultBoardEl.classList.remove("hideResult");
 }
+
+
 //
   //var score = localSt.getItem("score");
   //totalTime.textContent = score;
   
- // submitScoreEl.addEventListener("click", function()) {
+ submitScoreEl.addEventListener("click", function(event){
+  event.preventDefault();
+  var scoreList = {
+    Initial: initialEl.value,
+    Score: finalScoreEl.textContent,
+  }
+  localStorage.setItem("recoredScore", JSON.stringify(scoreList));
+ // renderMessage();
+})
+
+
    // if(initialEl) {
       
   
