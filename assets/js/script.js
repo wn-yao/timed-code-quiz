@@ -124,6 +124,7 @@ function selectAnswer() {
     //alert("Wrong!");
     totalTime = totalTime - 10;
     console.log (totalTime);
+    if (totalTime < 0) {totalTime = 0;}
     timerDisplayEl.textContent=totalTime;
     //currentQuestionIndex++;
     //displayQuestions();
@@ -145,6 +146,7 @@ function quizGameOver() {
    // if (timerDisplayEl = 0) {
    //    } else {
     timerDisplayEl = "";
+    if (totalTime < 0) {totalTime = 0;}
     finalScoreEl.textContent = totalTime;
   quizboardEl.classList.add("hideQuizBoard");
   resultBoardEl.classList.remove("hideResult");
