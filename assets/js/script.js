@@ -44,7 +44,7 @@ var questionsAndAnswers = [
 ];
 
 var currentQdisplay = 0;
-var totalTime = 90;
+var totalTime = 60;
 
 //local storage for high score
 var highScore = localStorage.getItem("highScore");
@@ -85,10 +85,10 @@ var correct = 0;
 
 function displayQuestions() {
   quizboardEl.classList.remove("hideQuizBoard");
-  for (i=0; i < questionsAndAnswers.length; i++) {
-  currentQ = questionsAndAnswers[currentQuestionIndex];
-  //console.log(currentQ);
-  questionsEl.textContent = currentQ.question;
+  for (i = 0; i < questionsAndAnswers.length; i++) {
+    currentQ = questionsAndAnswers[currentQuestionIndex];
+    //console.log(currentQ);
+    questionsEl.textContent = currentQ.question;
   }
   displayOptions();
 }
@@ -107,30 +107,37 @@ function displayOptions() {
 }
 //need to remove the first set of answer sets after making selection
 function selectAnswer() {
-  console.log(event.target.textContent );
+  console.log(event.target.textContent);
   var clickedAnswer = event.target.textContent;
-  //changing the currentQuestionIndex 
-  currentQuestionIndex++;
-  displayQuestions();
+  //changing the currentQuestionIndex \
+ // for (i=0, i , current)
+  if (clickedAnswer === currentQ.CorrectAnswer) {
+    currentQuestionIndex++;
+    displayQuestions();
+    console.log(clickedAnswer);
+  } else {
+    currentQuestionIndex++;
+    displayQuestions();
+    totalTime = totalTime - 10;
+    console.log (totalTime);
+  }
 }
 
-
-
-answersEl.addEventListener("click", selectAnswer);
+  answersEl.addEventListener("click", selectAnswer);
 
 
 
-//};
+  //};
 
-//currentQuestion = questionsAndAnswers[currentIndex];
-//quizboardEl.textContemt = questionsAndAnswers.question;
-//answerOptions.classList.remove("visibility");
-//console.log(displayQuestions)
-//}
+  //currentQuestion = questionsAndAnswers[currentIndex];
+  //quizboardEl.textContemt = questionsAndAnswers.question;
+  //answerOptions.classList.remove("visibility");
+  //console.log(displayQuestions)
+  //}
 
 
-//answer correct?
+  //answer correct?
 
-//resulst show after quize is done
-function quizGameOver() { }
-//
+  //resulst show after quize is done
+ // function quizGameOver() { }
+
