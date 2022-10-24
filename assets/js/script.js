@@ -12,6 +12,9 @@ var submitScoreEl = document.querySelector("#submitScore");
 var showQuizBoard = document.querySelector(".hideQuizBoard");
 var showResultEl = document.querySelector(".hideResult");
 var initialEl = document.querySelector("#initials");
+var scoreRecordEl = document.querySelector("#scoreRecord");
+var finalUserRecordEl = document.querySelector("#finalUserRecord");
+var clearScoreEl = document.querySelector("#clearScore-btn");
 
 //Questions and it's answers 
 
@@ -164,7 +167,8 @@ function quizGameOver() {
     Score: finalScoreEl.textContent,
   }
   localStorage.setItem("recoredScore", JSON.stringify(scoreList));
- // renderMessage();
+  resultBoardEl.remove();
+  scoreRecordEl.classList.remove("hideScoreRecord");
 })
 
 
