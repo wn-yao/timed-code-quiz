@@ -43,3 +43,11 @@ main {
 .hideResult {
     display: none;
 }
+
+.hideScoreRecord {
+    display: none;
+}
+
+#finalUserRecord {
+    list-style-type: none;
+}
