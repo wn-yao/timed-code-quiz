@@ -161,29 +161,57 @@ function quizGameOver() {
   //var score = localSt.getItem("score");
   //totalTime.textContent = score;
   
-  submitScoreEl.addEventListener("click", function(event){
-    event.preventDefault();
-    var scoreList = {
-      Initial: initialEl.value,
-      Score: finalScoreEl.textContent,
-    }
-    localStorage.setItem("recoredScore", JSON.stringify(scoreList));
-    resultBoardEl.remove();
+  /**
+     *  Get previous scores from localStorage
+     *  push newone with previous scores
+     *  set them in localStorage.
+     */
+    //[ { "initial:":""; "Score": ""}, { }
+
+    let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+    submitScoreEl.addEventListener("click", function(event){
+      event.preventDefault();
+      var scoreList = {
+        Initial: initialEl.value,
+        Score: finalScoreEl.textContent,
+      }
+      highScores.push(scoreList);
+
+      localStorage.setItem("highScores", JSON.stringify(highScores));
+     // resultBoardEl.remove();
+      //scoreRecordEl.classList.remove("hideScoreRecord");
+      //renderHighScore();
+     
+     resultBoardEl.remove();
     scoreRecordEl.classList.remove("hideScoreRecord");
     renderHighScore();
-  })
+    })
+
+   // localStorage.setItem("recoredScore", JSON.stringify(scoreList));
+    //resultBoardEl.remove();
+    //scoreRecordEl.classList.remove("hideScoreRecord");
+   
+  
   
   function renderHighScore() {
-    var scoreResult = localStorage.getItem("recordScore");
-    var initialEntered = localStorage.getItem("initial");
-    var initial = document.createElement("p");
-    var score = document.createElement("p");
-    if (initialEntered) {
-      initial.textContent = "Initial: " + initialEntered;}
-      finalUserRecordEl.appendChild(initial);
-     if (scoreResult) {
-      score.textContent = "High Score: " + scoreResult;
-    }finalUserRecordEl.appendChild(score);}
+    var scoreResult = localStorage.getItem("recoredScore");
+    //convert string to object data type JSON.parse
+    var parseScoreResult = JSON.parse(scoreResult);
+    /**
+     *  [ { "initial": "", score: 55}, {},  ... ]
+     */
+    //var showingScorre = document.createElement("p");
+
+    for (i = 0; i < parseScoreResult.length; i++) {
+      finalUserRecordEl.appendChild(parseScoreResult)
+    }}
+    //if (initialEntered) {
+      //initial.textContent = "Initial: " + initialEntered;}
+      //finalUserRecordEl.appendChild(initial);
+     //if (scoreResult) {
+      //score.textContent = "High Score: " + scoreResult;
+    //}finalUserRecordEl.appendChild(score);}
   
   
     returnToQuizEl.addEventListener("click",function(event) {
@@ -207,4 +235,4 @@ function quizGameOver() {
     
    
     //save score to loca sotrage 
- 
+  
