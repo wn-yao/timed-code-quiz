@@ -195,23 +195,13 @@ function quizGameOver() {
   
   
   function renderHighScore() {
-    var scoreResult = localStorage.getItem("recoredScore");
-    //convert string to object data type JSON.parse
-    var parseScoreResult = JSON.parse(scoreResult);
-    /**
-     *  [ { "initial": "", score: 55}, {},  ... ]
-     */
-    //var showingScorre = document.createElement("p");
-
-    for (i = 0; i < parseScoreResult.length; i++) {
-      finalUserRecordEl.appendChild(parseScoreResult)
+    var displayScores = JSON.parse(highScores);
+    for (i = 0; i < displayScores.length; i++) {
+     var storedScoreLIst = finalUserRecordEl.createElement("li"); 
+     storedScoreLIst.textContent = highScores;
+     finalScoreEl.appendChild(highScores);
     }}
-    //if (initialEntered) {
-      //initial.textContent = "Initial: " + initialEntered;}
-      //finalUserRecordEl.appendChild(initial);
-     //if (scoreResult) {
-      //score.textContent = "High Score: " + scoreResult;
-    //}finalUserRecordEl.appendChild(score);}
+   
   
   
     returnToQuizEl.addEventListener("click",function(event) {
