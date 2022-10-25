@@ -202,12 +202,22 @@ submitScoreEl.addEventListener("click", function (event) {
 //scoreRecordEl.classList.remove("hideScoreRecord");
 
 function renderHighScore() {
-  var displayScores = JSON.parse(highScores);
-  for (i = 0; i < displayScores.length; i++) {
-    var storedScoreLIst = finalUserRecordEl.createElement("li");
-    storedScoreLIst.textContent = highScores;
-    finalScoreEl.appendChild(highScores);
+  //var displayScores = JSON.parse(highScores);
+  console.log(highScores);
+  for(var i = 0; i < highScores.length; i++){
+    console.log(i);
+    console.log(highScores[i]);
+    var storedScoreLIst = document.createElement("li");
+    storedScoreLIst.textContent = "Inital: " + highScores[i].Initial +"."+ " Score:" +highScores[i].Score;
+    console.log(highScores[i]);
+    finalUserRecordEl.appendChild(storedScoreLIst);
   }
+  //for (var i = 0; i < highScores.length; i++) {
+   // var storedScoreLIst = finalUserRecordEl.createElement("li");
+    //storedScoreLIst.textContent = highScores[i].Score;
+    //console.log(highScores[i]);
+   // finalScoreEl.appendChild(storedScoreLIst);
+  //}
 }
 
 returnToQuizEl.addEventListener("click", function (event) {
