@@ -46,5 +46,7 @@ Please refer to MIT License
 
 https://wn-yao.github.io/timed-code-quiz/
 
+![Screenshot](https://github.com/wn-yao/timed-code-quiz/blob/main/assets/images/DeployedPageImage.jpg)
+
 
 
