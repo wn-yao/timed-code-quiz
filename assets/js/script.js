@@ -232,6 +232,13 @@ clearScoreEl.addEventListener("click", function (event) {
     finalUserRecordEl.removeChild(finalUserRecordEl.lastChild);
   };
 });
+
+highScoreEl.addEventListener("click", function(even) {
+  event.preventDefault();
+  renderHighScore();
+  scoreRecordEl.classList.remove("hideScoreRecord");
+  startPageEl.remove();})
+
 // if(initialEl) {
 
 // function clearQuestion () {
