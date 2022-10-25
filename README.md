@@ -40,5 +40,11 @@ Class TAs.
 
 ## License 
 
-Please refer to MIT License.
+Please refer to MIT License
+
+## Deployed Application and Screenshot
+
+https://wn-yao.github.io/timed-code-quiz/
+
+
 
