@@ -59,7 +59,7 @@ var currentQdisplay = 0;
 var totalTime = 60;
 
 //local storage for high score
-var highScore = localStorage.getItem("highScore");
+//var highScore = localStorage.getItem("highScore");
 //submitScoreEl.textContent = highScore;
 
 //set function to start quiz whecn click start
@@ -112,7 +112,7 @@ function displayOptions() {
     answerOptions.classList.add("btn");
     answerOptions.textContent = currentQ.options[i];
     answersEl.appendChild(answerOptions);
-    console.log(currentQ.options[i]);
+    //console.log(currentQ.options[i]);
   }
 }
 //need to remove the first set of answer sets after making selection
@@ -121,7 +121,7 @@ function displayOptions() {
 //resulst show after quize is done
 
 function selectAnswer() {
-  console.log(event.target.textContent);
+  //console.log(event.target.textContent);
   var clickedAnswer = event.target.textContent;
   //changing the currentQuestionIndex \
   // for (i=0, i , current)
@@ -133,7 +133,7 @@ function selectAnswer() {
   } else {
     //alert("Wrong!");
     totalTime = totalTime - 10;
-    console.log(totalTime);
+    //console.log(totalTime);
     if (totalTime < 0) {
       totalTime = 0;
     }
@@ -203,13 +203,13 @@ submitScoreEl.addEventListener("click", function (event) {
 
 function renderHighScore() {
   //var displayScores = JSON.parse(highScores);
-  console.log(highScores);
+  //console.log(highScores);
   for(var i = 0; i < highScores.length; i++){
-    console.log(i);
-    console.log(highScores[i]);
+    //console.log(i);
+    //console.log(highScores[i]);
     var storedScoreLIst = document.createElement("li");
     storedScoreLIst.textContent = "Inital: " + highScores[i].Initial +"."+ " Score:" +highScores[i].Score;
-    console.log(highScores[i]);
+    //console.log(highScores[i]);
     finalUserRecordEl.appendChild(storedScoreLIst);
   }
   //for (var i = 0; i < highScores.length; i++) {
