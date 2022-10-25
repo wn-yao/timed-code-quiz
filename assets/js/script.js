@@ -228,6 +228,9 @@ returnToQuizEl.addEventListener("click", function (event) {
 clearScoreEl.addEventListener("click", function (event) {
   event.preventDefault();
   localStorage.clear();
+  while (highScores.length > 1){
+    finalUserRecordEl.removeChild(finalUserRecordEl.lastChild);
+  };
 });
 // if(initialEl) {
 
