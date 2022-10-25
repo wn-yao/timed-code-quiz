@@ -161,50 +161,50 @@ function quizGameOver() {
   //var score = localSt.getItem("score");
   //totalTime.textContent = score;
   
- submitScoreEl.addEventListener("click", function(event){
-  event.preventDefault();
-  var scoreList = {
-    Initial: initialEl.value,
-    Score: finalScoreEl.textContent,
-  }
-  localStorage.setItem("recoredScore", JSON.stringify(scoreList));
-  resultBoardEl.remove();
-  scoreRecordEl.classList.remove("hideScoreRecord");
-  renderHighScore();
-})
-
-function renderHighScore() {
-  var scoreResult = localStorage.getItem("score");
-  var initialEntered = localStorage.getItem("initial");
-  var initial = document.createElement("p");
-  var score = document.createElement("p");
-  if (initialEntered) {
-    initial.textContent = "Initial: " + initialEntered;}
-    finalUserRecordEl.appendChild(initial);
-   if (scoreResult) {
-    score.textContent = "High Score: " + scoreResult;
-  }finalUserRecordEl.appendChild(score);}
-
-
-  returnToQuizEl.addEventListener("click",function(event) {
+  submitScoreEl.addEventListener("click", function(event){
     event.preventDefault();
-    window.location.href="index.html";})
-
-    clearScoreEl.addEventListener("click", function(event){
+    var scoreList = {
+      Initial: initialEl.value,
+      Score: finalScoreEl.textContent,
+    }
+    localStorage.setItem("recoredScore", JSON.stringify(scoreList));
+    resultBoardEl.remove();
+    scoreRecordEl.classList.remove("hideScoreRecord");
+    renderHighScore();
+  })
+  
+  function renderHighScore() {
+    var scoreResult = localStorage.getItem("recordScore");
+    var initialEntered = localStorage.getItem("initial");
+    var initial = document.createElement("p");
+    var score = document.createElement("p");
+    if (initialEntered) {
+      initial.textContent = "Initial: " + initialEntered;}
+      finalUserRecordEl.appendChild(initial);
+     if (scoreResult) {
+      score.textContent = "High Score: " + scoreResult;
+    }finalUserRecordEl.appendChild(score);}
+  
+  
+    returnToQuizEl.addEventListener("click",function(event) {
       event.preventDefault();
-      localStorage.clear();
-    })
-   // if(initialEl) {
-      
+      window.location.href="index.html";})
   
-
- // function clearQuestion () {
-    //if 
+      clearScoreEl.addEventListener("click", function(event){
+        event.preventDefault();
+        localStorage.clear();
+      })
+     // if(initialEl) {
+        
+    
   
-  //function quizOver () {
-
-
+   // function clearQuestion () {
+      //if 
+    
+    //function quizOver () {
   
+  
+    
+   
+    //save score to loca sotrage 
  
-  //save score to loca sotrage 
-
